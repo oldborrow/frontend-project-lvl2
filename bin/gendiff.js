@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import diff from '../difflogic.js'
-
 import { Command } from 'commander/esm.mjs';
+import diff from '../difflogic.js';
+
 const program = new Command();
 program.version('0.0.1');
 
