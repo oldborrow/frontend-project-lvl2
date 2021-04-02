@@ -1,0 +1,17 @@
+name: Testing-and-Linter-check
+on:
+  push:
+    branches: main
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test1
+        run: npm test
+
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: lint1
+        run: make lint
+  
