@@ -1,17 +1,19 @@
 name: Testing-and-Linter-check
 on:
   push:
-    branches: main
+    branches: [ main ]
 jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: test1
         run: npm test
 
   linting:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: lint1
         run: make lint
   
