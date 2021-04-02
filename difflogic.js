@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import _ from 'Lodash';
+import _ from 'lodash';
 
 const diffFunc = (path1, path2) => {
   const jsonObj1 = JSON.parse(readFileSync(path1));
@@ -7,7 +7,7 @@ const diffFunc = (path1, path2) => {
 
   let ans = [];
   for (const i in jsonObj1) {
-    if (!jsonObj2.hasOwnProperty(i)) {
+    if (!_.has(jsonObj2, i)) {
       ans.push(`- ${i}: ${jsonObj1[i]}`);
     } else if (jsonObj1[i] !== jsonObj2[i]) {
       ans.push(`- ${i}: ${jsonObj1[i]}`);
@@ -18,7 +18,7 @@ const diffFunc = (path1, path2) => {
   }
 
   for (const i in jsonObj2) {
-    if (!jsonObj1.hasOwnProperty(i)) {
+    if (!_.has(jsonObj1, i)) {
       ans.push(`+ ${i}: ${jsonObj2[i]}`);
     }
   }
